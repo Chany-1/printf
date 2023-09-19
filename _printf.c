@@ -46,5 +46,25 @@ int _printf(const char *format, ...)
                     count++;
                     break;
                 }
+		 default:
+                {
+                    char chany[2] = {format[i], '\0'};
+                    write(1, chany, 1);
+                    count++;
+                    break;
+                }
+            }
+        }
+    }
 
+    va_end(args);
+
+    return count;
+}
+
+int main(void)
+{
+    int len1 = printf("prog lang: %c\n", 'c');
+    int len2 = _printf("prog lang: %c\n", 's');
+    int len3 = _printf("prog lang: %c\n", '%%');
 
