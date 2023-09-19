@@ -36,18 +36,19 @@ int _printf(const char *format, ...)
 }
 
 int main(void)
+
 {
-    int len1 = printf("prog lang: %c\n", 'c');
-    int len2 = _printf("prog lang: %c\n", 's');
-    int len3 = _printf("prog lang: %c\n", '%%');
+   int len1 = printf("prog lang: %c\n", 'c');
+   int len2 = _printf("prog lang: %c\n", 's');
+   int len3 = _printf("prog lang: %c\n", '%%');
 
-    const char *str = "Hello, World!";
-    len1 += printf("String: %s\n", str);
-    len2 += _printf("String: %s\n", str);
-    len3 += _printf("String: %s\n", str);
+   const char *str = "Hello, World!";
+   len1 += printf("String: %s\n", str);
+   len2 += _printf("String: %s\n", str);
+   len3 += _printf("String: %s\n", str);
 
-    printf("Length 1: %d, Length 2: %d, Length 3: %d\n", len1, len2, len3);
+   printf("Length 1: %d, Length 2: %d, Length 3: %d\n", len1, len2, len3);
 
-    return 0;
+   return 0;
 }
 
