@@ -21,3 +21,30 @@ int _printf(const char *format, ...)
         {
             i++; // Move past the '%'
 
+	     switch (format[i])
+            {
+                case 'c':
+                {
+                    unsigned char c = (unsigned char)va_arg(args, int);
+                    putchar(c);
+                    count++;
+                    break;
+                }
+                case 's':
+                {
+                    char *s = va_arg(args, char *);
+                    if (s == NULL)
+                        s = "(null)";
+                    int len = strlen(s);
+                    write(1, s, len);
+                    count += len;
+                    break;
+                }
+                case '%':
+                {
+                    putchar('%');
+                    count++;
+                    break;
+                }
+
+
