@@ -23,6 +23,9 @@ int _printf(const char *format, ...)
         {
             i++; // Move past the '%'
 
+<<<<<<< HEAD
+	   
+=======
 	     switch (format[i])
             {
                 case 'c':
@@ -81,3 +84,4 @@ int main(void)
     return 0;
 }
 
+>>>>>>> cd518e6c23a8a420b433bdf0c073ef881129c968
