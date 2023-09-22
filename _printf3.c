@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, blen, hlen;
+	int , blen, hlen;
 	double totalBuffer;
 	double *total;
 	va_list argp;
