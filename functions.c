@@ -10,15 +10,15 @@ char *(*access_valid_type(char s))(va_list)
 {
 		int i;
 			v_types valid_types[] = {
-			{"c", found_char},
-			{"s", found_string},
-			{"%", found_percent},
-			{"d", found_int},
-			{"i", found_int},
-			{"u", found_unsigned},
-			{"o", found_octal},
-			{"r", found_reverse},
-			{"R", found_rot13},
+			{"c", loc_char},
+			{"s", loc_string},
+			{"%", loc_percent},
+			{"d", loc_int},
+			{"i", loc_int},
+			{"u", loc_unsigned},
+			{"o", loc_octal},
+			{"r", loc_reverse},
+			{"R", loc_rot13},
 			{NULL, NULL}
 			};
 
@@ -34,34 +34,34 @@ char *(*access_valid_type(char s))(va_list)
 	return (NULL);
 }
 /**
-* malloc_buffer - allocates characters to buffer, handling overflows
+* malloc_buff - allocates characters to buffer, handling overflows
 * @hold: string to allocate into buffer
-* @holdlen: hold length
+* @olen: hold length
 * @buffer: buffer char array
-* @buflen: pointer to end of buffer
+* @bulen: pointer to end of buffer
 * @total: pointer to total character counter
 * Return: buffer length
 **/
-int malloc_buffer(char *hold, int holdlen, char *buffer, int buflen, double *total)
+int malloc_buff(char *hold, int olen, char *buffer, int bulen, double *total)
 {
 	int sizecpy = 0;
 
-	if (holdlen + buflen > BUFSIZE)
+	if (olen + bulen > BUFFSIZE)
 	{
-	sizecpy = BUFSIZE - buflen;
+	sizecpy = BUFFSIZE - buflen;
 	_memcpy(buffer, hold, sizecpy, buflen);
 	_puts(buffer, BUFFSIZE);
 	hold += sizecpy;
-	_memcpy(buffer, hold, holdlen - sizecpy, 0);
-	buflen = holdlen - sizecpy;
+	_memcpy(buffer, hold, olen - sizecpy, 0);
+	buflen = olen - sizecpy;
 	*total += BUFFSIZE;
 	}
 	else
 	{
-	_memcpy(buffer, hold, holdlen, buflen);
-	buflen += holdlen;
+	_memcpy(buffer, hold, olen, bulen);
+	bulen += holdlen;
 												}
-	return (buflen);
+	return (bulen);
 }
 /**
 * chartos - converts a character to a string
