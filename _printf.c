@@ -47,5 +47,3 @@ int _printf(const char *format, ...)
 	_puts(buffer, buflen);
 	return (full_buffer + buflen);
 }
-
-
