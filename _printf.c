@@ -1,49 +1,27 @@
-#include "main.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
-	/**
-* _printf - Creation of the printf function.
-* @format: string passed with containg content to print.
-* Return: The valuel of format.
+#include "holberton.h"
+
+/**
+* _printf - Produces output according to a format
+* @format: Is a character string. The format string
+* is composed of zero or more directives
+*
+* Return: The number of characters printed (excluding
+* the null byte used to end output to strings)
 **/
 int _printf(const char *format, ...)
 {
+	int size;
+	va_list args;
+	if (format == NULL)
+		return (-1);
 
-	int i, bufflen, holdlen;
-	double total_buffer;
-	double *total;
-	va_list argk;
-	char buffer[BUFFSIZE], *holder;
-	char *(*pointer_get_valid)(va_list);
+	size = _strlen(format);
+		if (size <= 0)
+		return (0);
 
-	for (i = 0; i < BUFFSIZE; i++)
-	{
-		buffer[i] = 0;
-	}
-	full_buffer = 0;
-	obtain_valid_pointer = NULL;
-	total = &full_buffer;
-	va_start(argk, format);
-	for (i = bufflen = holdlen = 0; format && format[i]; i++)
-	{
-		if (format[i] == '%')
-		{
-			obtain_valid_pointer = access_valid_type(format[i + 1]);
-			holder = (obtain_valid_pointer == NULL) ?
-			loc_nothing(format[i + 1]) :
-			obtain_valid_pointer(argk);
-			holdlen = _strlen(holder);
-			bufflen = malloc_buffer(holder, holdlen, buffer, bufflen, total);
-			i++;
-		}
-		else
-		{
-			holder = chartos(format[i]);
-			buflen = malloc_buffer(holder, 1, buffer, buflen, total);
-		}
-	}
-	va_end(argk);
-	_puts(buffer, buflen);
-	return (full_buffer + buflen);
+		va_start(args, format);
+		size = handler(format, args);
+		_putchar(-1);
+		va_end(args);
+		return (size);
 }
