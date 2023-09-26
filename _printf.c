@@ -11,17 +11,17 @@
 int _printf(const char *format, ...)
 {
 	int size;
-	va_list args;
+	va_list argz;
 	if (format == NULL)
 		return (-1);
 
 	size = _strlen(format);
-		if (size <= 0)
+	if (size <= 0)
 		return (0);
 
-		va_start(args, format);
-		size = handler(format, args);
+	va_start(argz, format);
+		size = handler_function(format, args);
 		_putchar(-1);
-		va_end(args);
+		va_end(argz);
 		return (size);
 }
