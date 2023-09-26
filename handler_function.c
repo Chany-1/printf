@@ -2,11 +2,11 @@
 
 /**
  *
- *handelr_functions - Controller for percent format
- *@str: string format
- *@list: List of arguments 
+ *handelr_functions - control for the percentage function 
+ *@str: string passed in the format 
+ *@list: List of arguments saved in varidic function 
  *
- * Return: Total size of arguments with the total size of the base string 
+ * Return: Total size of args  with the total size of the base string 
 **/
 
 int handler_function(const char *str, valist list )
@@ -21,7 +21,7 @@ int handler_function(const char *str, valist list )
 			{
 				aux = percent_handler(str, list, &i);
 				if (aux == -1)
-					return (-1);
+				return (-1);
 
 				size += aux;
 				continue;
